@@ -5,6 +5,13 @@ import Main, { mainLoader } from "./layouts/Main";
 import Dashboard, { dashboardLoader } from "./pages/Dashboard";
 import Error from "./pages/Error";
 
+// library imports
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+//Actions
+import { logoutAction } from "./actions/logout";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -13,20 +20,17 @@ const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       {
-        path: "/", //or index:true
+        path: "/",
         element: <Dashboard />,
         loader: dashboardLoader,
         errorElement: <Error />,
       },
+      {
+        path: "logout",
+        action: logoutAction,
+        element: <p>You logged out</p>,
+      },
     ],
-  },
-  {
-    path: "about",
-    element: <h1>About</h1>,
-  },
-  {
-    path: "*",
-    element: <Error />,
   },
 ]);
 
@@ -34,6 +38,7 @@ function App() {
   return (
     <div className="App">
       <RouterProvider router={router} />
+      <ToastContainer />
     </div>
   );
 }
