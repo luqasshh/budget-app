@@ -1,6 +1,6 @@
 // fake waiting
 export const waait = () =>
-  new Promise((res) => setTimeout(res, Math.random() * 2000));
+  new Promise((res) => setTimeout(res, Math.random() * 800));
 
 // Local storage
 export const fetchData = (key) => {
@@ -37,7 +37,7 @@ export const createExpense = ({ name, amount, budgetId }) => {
   const newItem = {
     id: crypto.randomUUID(),
     name: name,
-    createdt: Date.now(),
+    createdAt: Date.now(),
     amount: +amount,
     budgetId: budgetId,
   };
@@ -83,3 +83,8 @@ export const formatPercentage = (amount) => {
     minimumFractionDigits: 0,
   });
 };
+
+// format date
+
+export const formatDateToLocaleString = (epoch) =>
+  new Date(epoch).toLocaleDateString();
