@@ -19,8 +19,6 @@ export async function budgetLoader({ params }) {
     value: params.id,
   });
 
-  console.log(budget);
-
   if (!budget) throw new Error("The budget doesn't exist");
 
   return { budget, expenses };
