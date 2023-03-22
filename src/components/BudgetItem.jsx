@@ -6,8 +6,8 @@ import {
 } from "../helpers";
 import { BanknotesIcon, TrashIcon } from "@heroicons/react/24/outline";
 
-const BudgetItem = ({ budget }) => {
-  const { id, name, amount, color, showDelete = true } = budget;
+const BudgetItem = ({ budget, showDelete = true }) => {
+  const { id, name, amount, color } = budget;
   const spent = calculateSpentByBudget(id);
   return (
     <div

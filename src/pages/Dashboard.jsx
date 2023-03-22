@@ -102,7 +102,13 @@ const Dashboard = () => {
                 <h2>Existing budgets</h2>
                 <div className="budgets">
                   {budgets.map((budget) => {
-                    return <BudgetItem key={budget.id} budget={budget} />;
+                    return (
+                      <BudgetItem
+                        key={budget.id}
+                        budget={budget}
+                        showDelete={false}
+                      />
+                    );
                   })}
                 </div>
                 {expenses && expenses.length > 0 && (
